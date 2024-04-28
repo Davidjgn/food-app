@@ -11,20 +11,10 @@ export default function LoginPage(){
 
     async function handleFormSubmit(e){
         e.preventDefault();
-
-        await signIn('credentials', {email, password, callbackUrl:'/'});
-        /*
         setLoginProgress(true);
-        const {ok} = await fetch('/api/login',{
-            body: JSON.stringify({email, password}),
-            headers: {'Content-Type': 'application/json'},
-            method: 'POST',
-        });
-        if(ok){
 
-        }else{
-
-        }*/
+        await signIn("credentials", {email, password, callbackUrl:"/"});
+        
         setLoginProgress(false);
     }
     return(
@@ -43,13 +33,13 @@ export default function LoginPage(){
                 <div className="my-4 text-center text-gray-500">
                     or login with provider
                 </div>
-                <button type="button" onClick={()=>signIn('google', {callbackUrl:'/'})} 
+                <button type="button" onClick={()=>signIn("google", {callbackUrl:"/"})} 
                         className="flex gap-4 justify-center border border-gray-300 ">
                     <Image src={'/google.png'} alt={''} width={24} height={24} />
                     Login with Google
                 </button>
                 <div className="text-center my-4 text-gray-500 pt-2 border-t">
-                    Don't have an account? <Link className="underline" href={'/register'}>Register here &raquo;</Link>
+                    Don't have an account? <Link className="underline" href={"/register"}>Register here &raquo;</Link>
                 </div>
             </form>
         </section>
