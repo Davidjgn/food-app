@@ -24,6 +24,7 @@
     "uniqid": "^5.4.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "20.11.24",
     "@types/react": "18.2.61",
     "autoprefixer": "^10.0.1",
