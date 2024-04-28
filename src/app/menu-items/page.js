@@ -1,12 +1,9 @@
 'use client';
 import { useProfile } from "@/components/UseProfile";
-import EditableImage from "@/components/layout/EditableImage";
 import UserTabs from "@/components/layout/UserTabs";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import Link from "next/link";
 import Right from "@/components/icons/right";
-import Image from "next/image";
 
 export default function MenuItemsPage(){
 

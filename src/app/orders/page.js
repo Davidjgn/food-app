@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useState } from "react";
-import UserTabs from "../../components/layout/UserTabs";
-import { useProfile } from "../../components/UseProfile";
-import { dbTimeForHuman } from "../../libs/datetime";
+import UserTabs from "@/components/layout/UserTabs";
+import { useProfile } from "@/components/UseProfile";
+import { dbTimeForHuman } from "@/libs/datetime";
 import Link from "next/link";
 
 export default function OrdersPage() {

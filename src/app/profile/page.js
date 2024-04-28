@@ -3,7 +3,6 @@ import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import Link from "next/link";
 import UserTabs from "@/components/layout/UserTabs";
 import UserForm from "@/components/layout/UserForm";
 

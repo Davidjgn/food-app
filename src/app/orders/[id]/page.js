@@ -4,9 +4,9 @@ import SectionHeaders from "@/components/layout/SectionHeaders";
 import { useParams } from "next/navigation";
 import { useEffect, useContext, useState } from "react";
 import AddressInputs from "@/components/layout/AddressInputs";
-import CartProduct from "../../../components/menu/CartProduct";
-import { cartProductPrice } from "../../../components/AppContext";
-import { useProfile } from "../../../components/UseProfile";
+import CartProduct from "@/components/menu/CartProduct";
+import { cartProductPrice } from "@/components/AppContext";
+import { useProfile } from "@/components/UseProfile";
 
 export default function OrdersPage() {
     const { clearCart } = useContext(CartContext);
