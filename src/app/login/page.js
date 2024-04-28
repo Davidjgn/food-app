@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import {signIn} from "next-auth/react";
-import Right from "@/components/icons/right";
 
 export default function LoginPage(){
     const [email, setEmail] = useState('');
@@ -40,7 +39,7 @@ export default function LoginPage(){
                     Login with Google
                 </button>
                 <div className="text-center my-4 text-gray-500 pt-2 border-t">
-                    Don't have an account? <Link className="underline" href={"/register"}>Register here </Link>
+                    Don&apos;t have an account? <Link className="underline" href={"/register"}>Register here &raquo;</Link>
                 </div>
             </form>
         </section>
