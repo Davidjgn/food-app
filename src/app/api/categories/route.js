@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { Category } from "@/models/Category";
-import { isAdmin } from "../auth/[...nextauth]/route";
+import { isAdmin } from "../isAdmin/route";
 
 export async function POST(req){
     mongoose.connect(process.env.MONGO_URL);
