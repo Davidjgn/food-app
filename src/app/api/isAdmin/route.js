@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth/next";
-import {authOptions} from "@/app/api/authOptions/route";
+import authOptions from "@/libs/authOptions";
 import {UserInfo} from '@/models/UserInfo';
 
 export async function isAdmin() {
