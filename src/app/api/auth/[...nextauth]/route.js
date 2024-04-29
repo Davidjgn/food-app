@@ -7,7 +7,7 @@ import bcrypt from 'bcrypt';
 import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter"
 import clientPromise from "@/libs/mongoConnect";
-import authOptions from "@/app/api/authOptions/route"
+import {authOptions} from "@/app/api/authOptions/route";
 
 /*
 export const authOptions = {
