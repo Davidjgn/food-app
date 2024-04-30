@@ -1,6 +1,7 @@
+import { set } from "mongoose";
 import Image from "next/image";
-
-
+import toast from "react-hot-toast";
+/*
 export default function EditableImage({ link, setLink }) {
     async function handleFile(e) {
         const files = e.target.files;
@@ -8,7 +9,7 @@ export default function EditableImage({ link, setLink }) {
             const data = new FormData;
             data.set('file', files[0]);
 
-            const uploadPromise = await fetch('/api/upload', {
+            const uploadPromise = fetch('/api/upload', {
                 method: 'POST',
                 body: data,
             }).then(response => {
@@ -17,7 +18,7 @@ export default function EditableImage({ link, setLink }) {
                         setLink(link);
                     })
                 }
-                throw new Error('Something went wrong.');
+                throw new Error('Something went wrong.'+response);
             });
             await toast.promise(uploadPromise, {
                 loading: 'Uploading...',
@@ -45,4 +46,61 @@ export default function EditableImage({ link, setLink }) {
         </>
     );
 
+}*/
+export default function EditableImage({link, setLink}) {
+
+  async function handleFile(e) {
+    const files = e.target.files;
+    if (files?.length === 1) {
+      const data = new FormData;
+      data.set('file', files[0]);
+      const uploadPromise = new Promise(async (resolve, reject)=>{
+        const response = await fetch('/api/upload', {
+            method: 'POST',
+            body: data,
+        });
+        if(response.ok){
+            resolve();
+            const imgURL = await response.json();
+            setTimeout(()=>setLink(imgURL), 500);
+        }else{
+            reject();
+        }
+      })
+      /*
+      const uploadPromise = fetch('/api/upload', {
+        method: 'POST',
+        body: data,
+      }).then(async response => {
+        if (response.ok) {
+          const link = await response.json();
+            setLink(link);
+        }
+        throw new Error('Something went wrong');
+      });*/
+
+      await toast.promise(uploadPromise, {
+        loading: 'Uploading...',
+        success: 'Upload complete',
+        error: 'Upload error',
+      });
+    }
+  }
+
+  return (
+    <>
+        {link && (
+            <Image className="rounded-lg w-full h-full mb-1" src={link} width={250} height={250} alt="Profile photo" />
+        )}
+        {!link && (
+            <div className="text-center bg-gray-200 p-4 text-gray-500 rounded-lg mb-1">
+                No image
+            </div>
+        )}
+        <label>
+            <input type="file" className="hidden" onChange={handleFile} />
+            <span className="block border border-gray-300 cursor-pointer rounded-lg p-2 text-center">Edit image</span>
+        </label>
+    </>
+);
 }
